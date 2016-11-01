@@ -32,7 +32,7 @@
 		p:dataSource-ref="dataSource" />
 
 	<aop:config proxy-target-class="true">
-		<aop:pointcut id="serviceMethod" expression="execution(* com.xiao.service..*(..))" />
+		<aop:pointcut id="serviceMethod" expression="execution(* com.locationView.service..*(..))" />
 		<aop:advisor pointcut-ref="serviceMethod" advice-ref="txAdvice" />
 	</aop:config>
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
@@ -46,9 +46,9 @@
 		class="org.mybatis.spring.SqlSessionFactoryBean"
 		p:dataSource-ref="dataSource"
 		p:configLocation="/WEB-INF/config/myBatisConfig.xml"
-		p:mapperLocations="classpath:com/xiao/mapper/*.xml"
+		p:mapperLocations="classpath:com/locationView/mapper/*.xml"
 	/>	
 	<!-- mybatis自动扫描加载Sql映射文件/接口 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
-		p:basePackage="com.xiao.mapper" />
+		p:basePackage="com.locationView.mapper" />
 </beans>
